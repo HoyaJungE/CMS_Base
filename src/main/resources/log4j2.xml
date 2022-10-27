@@ -2,27 +2,42 @@
 <Configuration>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d %5p [%c] %m%n" />
+            <PatternLayout pattern="%d{HH:mm:ss,SSS} %5p[%c] %logger{36} %m%n" />
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="java.sql" level="INFO" additivity="false">
+        <!-- 공통 디버그용 start-->
+        <Logger name="java.sql.ResultSet" level="WARN" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
-        <Logger name="egovframework" level="DEBUG" additivity="false">
+        <Logger name="org.mybatis.spring.SqlSessionUtils" level="WARN" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
-        <Logger name="org.egovframe" level="DEBUG" additivity="false">
+        <Logger name="jdbc.resultset" level="WARN" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
-		<!-- log SQL with timing information, post execution -->
-	    <Logger name="jdbc.sqltiming" level="INFO" additivity="false">
-	        <AppenderRef ref="console" />
-	    </Logger>
-	    <Logger name="org.springframework" level="INFO" additivity="false">
-	        <AppenderRef ref="console" />
-	    </Logger>
-        <Root level="ERROR">
+        <Logger name="jdbc.resultsettable" level="WARN" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <!-- 공통 디버그용 end-->
+        <Logger name="java.sql" level="WARN" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="egovframework" level="WARN" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <!-- log SQL with timing information, post execution -->
+        <Logger name="jdbc.sqltiming" level="WARN" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="org.springframework" level="WARN" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="org.springframework.test" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Root level="DEBUG">
             <AppenderRef ref="console" />
         </Root>
     </Loggers>
