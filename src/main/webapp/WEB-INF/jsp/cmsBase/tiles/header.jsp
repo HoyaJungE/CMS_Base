@@ -8,7 +8,7 @@
   * @Class Name : EgovUnitTop.jsp
   * @Description : 상단 헤더 영역
   * @Modification Information
-  * 
+  *
   * @수정일               수정자            수정내용
   *  ----------   --------   ---------------------------
   *  2020.06.23   신용호            세션만료시간 보여주기
@@ -25,8 +25,7 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/com/cmm/main.css' />">
-<link href="<c:url value="/css/egovframework/com/com.css"/>" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/cmsBase/template/base/base.css' />">
 <title>eGovFrame 공통 컴포넌트</title>
 <script type="text/javascript" src="<c:url value='/js/egovframework/com/cmm/jquery.js'/>" ></script>
 <script type="text/javaScript" language="javascript" defer="defer">
@@ -45,12 +44,12 @@
  	  }
  	  return "";
  	}
-  
+
   	function pad(n, width) {
   	  n = n + '';
   	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
   	}
-  
+
 	var objLeftTime;
 	var objClickInfo;
 	var latestTime;
@@ -61,10 +60,10 @@
 	var stateExpiredTime = false;
 	var logoutUrl = "<c:url value='/uat/uia/actionLogout.do'/>";
 	var timer;
-  
+
 	function init() {
 		objLeftTime = document.getElementById("leftTimeInfo");
-		
+
 		if (objLeftTime == null) {
 			console.log("'leftTimeInfo' ID is not exist!");
 			return;
@@ -76,17 +75,17 @@
 		expireTime = getCookie("egovExpireSessionTime");
 		//console.log("latestServerTime = "+latestTime);
 		//console.log("expireSessionTime = "+expireTime);
-		
+
 		elapsedTime = 0;
 		firstLocalTime = (new Date()).getTime();
 		showRemaining();
-		
+
 		timer = setInterval(showRemaining, timeInterval); // 1초 간격 호출
 	}
 
 	function showRemaining() {
 		elapsedLocalTime = (new Date()).getTime() - firstLocalTime;
-		
+
 		var timeRemaining = expireTime - latestTime - elapsedLocalTime;
 		if ( timeRemaining < timeInterval ) {
 			clearInterval(timer);
@@ -102,7 +101,7 @@
 
 			return;
 		}
-		var timeHour = Math.floor(timeRemaining/1000/60 / 60); 
+		var timeHour = Math.floor(timeRemaining/1000/60 / 60);
 		var timeMin = Math.floor((timeRemaining/1000/60) % 60);
 		var timeSec = Math.floor((timeRemaining/1000) % 60);
 		//objLeftTime.textContent = pad(timeHour,2) +":"+ pad(timeMin,2) +":"+ pad(timeSec,2);
@@ -110,14 +109,14 @@
 		objLeftTime.innerHTML = pad(timeHour,2) +":"+ pad(timeMin,2) +":"+ pad(timeSec,2);
 		//console.log("call showRemaining() = "+objLeftTime.innerHTML);
 	}
-  
+
 	function reqTimeAjax() {
-	  	
+
 	  	if (stateExpiredTime==true) {
 	  		alert('<spring:message code="comCmm.top.cantIncSessionTime"/>');//시간을 연장할수 없습니다.
 	  		return;
 	  	}
-	  	
+
 		$.ajax({
 		    url:'${pageContext.request.contextPath}/uat/uia/refreshSessionTimeout.do', //request 보낼 서버의 경로
 		    type:'get', // 메소드(get, post, put 등)
@@ -139,21 +138,18 @@
 		});
 		return false;
 	}
-	
+
 	function logout() {
 		$("#sessionInfo").hide();
 
 		parent.frames["_content"].location.href = logoutUrl;
 	}
-	
+
 </script>
 </head>
 <body onload="init()">
 <div id="header">
 	<div class="header_box">
-		<h1>
-			<a href="<c:url value='/EgovContent.do' />" target="_content"><img src="<c:url value='/images/egovframework/com/cmm/main/top_logo.png' />" alt="eGovframe"></a>
-		</h1>
 		<div style="margin-top:4px;">
 			<strong class="top_title_strong"><spring:message code="comCmm.top.title"/></strong>
 		    <span id="sessionInfo">
