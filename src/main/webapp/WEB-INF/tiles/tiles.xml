@@ -4,27 +4,50 @@
                 "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <!-- 메뉴 표시 -->
+    <!-- base -->
     <definition name="base" template="/WEB-INF/jsp/cmsBase/tiles/template.jsp">
         <put-attribute name="header" value="/WEB-INF/jsp/cmsBase/tiles/header.jsp" />
         <put-attribute name="topMenu" value="/WEB-INF/jsp/cmsBase/tiles/topMenu.jsp" />
+        <put-attribute name="body" value="" />
         <put-attribute name="leftMenu"   value="/WEB-INF/jsp/cmsBase/tiles/leftMenu.jsp" />
         <put-attribute name="footer" value="/WEB-INF/jsp/cmsBase/tiles/footer.jsp" />
     </definition>
 
-    <definition name="*" extends="base">
+    <!--<definition name="*" extends="base">
+        <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}.jsp" />
+    </definition>-->
+    <definition name="cmsBase/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}.jsp" />
     </definition>
 
-    <definition name="*/*" extends="base">
+    <definition name="cmsBase/*/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}/{2}.jsp" />
     </definition>
 
-    <definition name="*/*/*" extends="base">
+    <definition name="cmsBase/*/*/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}/{2}/{3}.jsp" />
     </definition>
-    <definition name="*/*/*/*" extends="base">
+    <definition name="cmsBase/*/*/*/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}/{2}/{3}/{4}.jsp" />
     </definition>
 
+    <!-- egov -->
+    <definition name="egov" template="/WEB-INF/jsp/egovframework/tiles/template.jsp">
+        <put-attribute name="body" value="" />
+    </definition>
+
+    <definition name="egovframework/*" extends="egov">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/{1}.jsp" />
+    </definition>
+
+    <definition name="egovframework/*/*" extends="egov">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/{1}/{2}.jsp" />
+    </definition>
+
+    <definition name="egovframework/*/*/*" extends="egov">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/{1}/{2}/{3}.jsp" />
+    </definition>
+    <definition name="egovframework/*/*/*/*" extends="egov">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/{1}/{2}/{3}/{4}.jsp" />
+    </definition>
 </tiles-definitions>

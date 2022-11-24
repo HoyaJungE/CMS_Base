@@ -10,7 +10,7 @@ public class MainController {
     @RequestMapping("/main.do")
     public String index(ModelMap model) {
 
-        return "main/mainView";
+        return "cmsBase/main/mainView";
     }
 
 }

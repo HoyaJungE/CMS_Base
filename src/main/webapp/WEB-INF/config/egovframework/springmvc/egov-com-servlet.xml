@@ -79,9 +79,9 @@
 	</bean>
 	<!-- 타일즈설정  끝-->
 
-	<!--<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>-->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="2"/>
 
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2"
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="3"
 		  p:viewClass="org.springframework.web.servlet.view.JstlView"
 		  p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 

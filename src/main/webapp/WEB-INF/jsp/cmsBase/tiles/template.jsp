@@ -13,6 +13,7 @@
     </div>
     <div id="wrapper">
         <tiles:insertAttribute name="leftMenu" />
+        <tiles:insertAttribute name="body"/>
     </div>
     <div class="footer">
         <tiles:insertAttribute name="footer" />
