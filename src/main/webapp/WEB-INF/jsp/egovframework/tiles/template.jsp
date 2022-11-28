@@ -1,21 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!DOCTYPE html>
+
 <html>
-<head>
-    <title>Egov</title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title><spring:message code="comSymMnuMpm.mainView.mainViewTitle"/></title><!-- 행정안전부 공통서비스 테스트 사이트 -->
+        <script language="javascript" src="<c:url value='/js/egovframework/com/main.js' />"></script>
+        <title>Egov</title>
+    </head>
+    <body>
 
-</head>
-<body class="wrapper">
-    <div id="top">
+    <!-- header -->
+    <c:import url="/WEB-INF/jsp/egovframework/com/head.jsp" />
 
-    </div>
-    <div id="wrapper">
-        <tiles:insertAttribute name="body"/>
-    </div>
-    <div class="footer">
+        <!-- contents -->
+        <div>
+            <!-- 상단 -->
+            <div class="mp_top">
 
-    </div>
-</body>
+            </div>
+
+            <!-- 배너 -->
+            <h3 class="m_tit01 mt15"><spring:message code="comSymMnuMpm.mainView.getBannerImage"/></h3><!-- 배너 -->
+
+
+            <tiles:insertAttribute name="body"/>
+
+            <!-- bottom -->
+            <c:import url="/WEB-INF/jsp/egovframework/com/main_bottom.jsp" />
+        </div><!-- contents -->
+    </body>
 </html>

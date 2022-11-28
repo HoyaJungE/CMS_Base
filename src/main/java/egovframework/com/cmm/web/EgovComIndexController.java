@@ -76,6 +76,7 @@ public class EgovComIndexController implements ApplicationContextAware, Initiali
 
 	@RequestMapping("/index.do")
 	public String index(ModelMap model) {
+		LOGGER.debug("EgovComIndexController index is called ");
 		return "egovframework/com/cmm/EgovUnitMain";
 	}
 

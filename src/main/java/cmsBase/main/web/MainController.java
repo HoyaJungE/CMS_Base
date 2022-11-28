@@ -12,5 +12,4 @@ public class MainController {
 
         return "cmsBase/main/mainView";
     }
-
 }
