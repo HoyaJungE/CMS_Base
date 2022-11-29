@@ -3,6 +3,7 @@
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html>
 
 <html>
@@ -14,9 +15,8 @@
     </head>
     <body>
 
-    <!-- header -->
-    <c:import url="/WEB-INF/jsp/egovframework/com/head.jsp" />
-
+        <!-- header -->
+        <c:import url="/WEB-INF/jsp/egovframework/com/head.jsp" />
         <!-- contents -->
         <div>
             <!-- 상단 -->
@@ -24,11 +24,13 @@
 
             </div>
 
-            <!-- 배너 -->
-            <h3 class="m_tit01 mt15"><spring:message code="comSymMnuMpm.mainView.getBannerImage"/></h3><!-- 배너 -->
+            <div class="r"><!-- left layout -->
+                <h3 class="m_tit01 mt15"><spring:message code="comSymMnuMpm.mainView.selectBBSListPortlet"/></h3><!-- 생성된 게시판 목록 -->
+                <div style="height:150px">
 
-
-            <tiles:insertAttribute name="body"/>
+                </div>
+            </div>
+            <tiles:insertAttribute name="body" ignore="true"/>
 
             <!-- bottom -->
             <c:import url="/WEB-INF/jsp/egovframework/com/main_bottom.jsp" />

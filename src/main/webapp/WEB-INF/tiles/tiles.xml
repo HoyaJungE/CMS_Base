@@ -13,9 +13,6 @@
         <put-attribute name="footer" value="/WEB-INF/jsp/cmsBase/tiles/footer.jsp" />
     </definition>
 
-    <!--<definition name="*" extends="base">
-        <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}.jsp" />
-    </definition>-->
     <definition name="cmsBase/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/jsp/cmsBase/{1}.jsp" />
     </definition>
@@ -49,5 +46,8 @@
     </definition>
     <definition name="egovframework/*/*/*/*" extends="egov">
         <put-attribute name="body" value="/WEB-INF/jsp/egovframework/{1}/{2}/{3}/{4}.jsp" />
+    </definition>
+    <definition name="egovframework/*/*/*/*/*" extends="egov">
+        <put-attribute name="body" value="/WEB-INF/jsp/egovframework/{1}/{2}/{3}/{4}/{5}.jsp" />
     </definition>
 </tiles-definitions>
