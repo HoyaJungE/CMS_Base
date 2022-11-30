@@ -34,11 +34,12 @@ var imgpath = "<c:url value='/images/egovframework/com/cmm/utl/'/>";
 var getContextPath = "${pageContext.request.contextPath}";
 var path = "http://" + "${pageContext.request.serverName}" + ":" + "${pageContext.request.serverPort}";
 </script>
-<script language="javascript1.2" src="<c:url value='/js/egovframework/com/sym/mnu/mpm/EgovMainMenu.js' />" /></script>
+<script type="text/javascript" src="<c:url value='/js/cmsBase/com/cmm/common.js'/>" ></script>
+<script language="javascript1.2" src="<c:url value='/js/egovframework/com/sym/mnu/mpm/EgovMainMenu.js' />"></script>
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight= "0">
 <form name="menuListForm" action ="<c:url value='/sym/mnu/mpm/EgovMenuListSelect.do' />" method="post">
-<DIV id="main" style="display:">
+<DIV id="main" >
 
 <table width="250" cellpadding="8" class="table-search" border="0">
   <tr>

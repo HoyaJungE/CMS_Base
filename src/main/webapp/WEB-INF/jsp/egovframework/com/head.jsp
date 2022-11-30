@@ -69,6 +69,7 @@
 <input name="chkURL" type="hidden" />
 <input name="vStartP" type="hidden" />
     <div id="gnb">
+        <a href="<c:url value='/EgovLeft.do' />">메뉴목록</a>
     <div id="top_logo"><a href="<c:url value='/sym/mnu/mpm/EgovMainMenuHome.do' />" target=_top><img src="<c:url value='/images/egovframework/com/cmm/main/logo_01.gif' />" alt="egovframe" /></a></div>
     <div id="use_descri">
             <ul>

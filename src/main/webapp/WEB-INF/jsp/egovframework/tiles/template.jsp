@@ -23,13 +23,7 @@
             <div class="mp_top">
 
             </div>
-
-            <div class="r"><!-- left layout -->
-                <h3 class="m_tit01 mt15"><spring:message code="comSymMnuMpm.mainView.selectBBSListPortlet"/></h3><!-- 생성된 게시판 목록 -->
-                <div style="height:150px">
-
-                </div>
-            </div>
+            <c:import url="/WEB-INF/jsp/egovframework/com/main_left.jsp" />
             <tiles:insertAttribute name="body" ignore="true"/>
 
             <!-- bottom -->
@@ -37,3 +31,4 @@
         </div><!-- contents -->
     </body>
 </html>
+
